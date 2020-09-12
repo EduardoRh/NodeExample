@@ -45,13 +45,13 @@ router.post('/Auth', function(req, res, next) {
                 if(resultado.length > 0 && resultado[0].length > 0) {
                   var fields = resultado[0][0];
                   responseBody.code = 0;
-                  responseBody.message = "inicio de sesion exitoso";
+                  responseBody.message = "login Successful";
                   responseBody.content = fields;
                   res.json(responseBody);
                 }
                 else {
                   responseBody.code = -4;
-                  responseBody.message = "credenciales incorrectas";
+                  responseBody.message = "wrong Credentials";
                   res.json(responseBody);
                 }
               }
@@ -59,13 +59,13 @@ router.post('/Auth', function(req, res, next) {
           }
           else {
             responseBody.code = -2;
-            responseBody.message = "correo inexistente";
+            responseBody.message = "wrong email";
             res.json(responseBody);
           }
         }
         else {
           responseBody.code = -3;
-          responseBody.message = "datos entrantes inválidos";
+          responseBody.message = "wrong credentials";
           res.json(responseBody);
         }
       }
@@ -74,7 +74,7 @@ router.post('/Auth', function(req, res, next) {
   }
   else {
     responseBody.code = -1;
-    responseBody.message = "datos entrantes inválidos";
+    responseBody.message = "wrong credentials";
     res.json(responseBody);
   }
 });
